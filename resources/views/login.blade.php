@@ -8,12 +8,22 @@
 </head>
 <body>
     <h3>User-Login</h3>
+
     <div>
-        <label for="">Email</label>
-        <input type="password">
+        @if($errors->any())
+        <h4>{{ $errors->first() }}</h4>
+        @endif
     </div>
-    <div>
-        <input type="submit">
-    </div>
+    <form action="{{ route('login_post_page') }}" method="POST">
+        @csrf
+        <label for="email">Email</label>
+        <input name="email" type="email">
+        <label for="password">Password</label>
+        <input name="password" type="password">
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>    
+       
 </body>
 </html>
